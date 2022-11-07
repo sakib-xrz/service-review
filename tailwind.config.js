@@ -5,11 +5,11 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#CAA151",
+          primary: "#FFD700",
 
           light: "#EDEDED",
 
-          dark: "#191D1E",
+          black: "#191D1E",
 
           "base-100": "#191D1E",
 
