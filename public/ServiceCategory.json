@@ -1,0 +1,49 @@
+[
+    {
+        "service_id" : "01",
+        "title" : "Wedding Photography",
+        "description" : "Hamid Ali could be the best option for your big day. He has been successfully covering wedding events as well with his photography creativity to make the day special for couples.",
+        "details" : "If I ask a couple to make a list of wedding photography expectations? Then the list will be too long. And to meet these long expectations are not easy. To fulfill this expectation he has given the idea of wedding photography a new dimension. You cannot ignore the apparent creativity of Hamid Ali's photography. His clicks will grab anyone's attention at first glance.",
+        "img": "https://i.ibb.co/0sPYZzQ/wedding.jpg",
+        "rating" : "4.9"
+    },
+    {
+        "service_id" : "02",
+        "title" : "Fashion Photography",
+        "description" : "In most cases, fashion photography applies the same type of photographic style. But when fashion is emphasized in Hamid's view then it looks a little bit different. Hamid thinks that - it's important to reflect the glamour in fashion photography so the charm can attract a viewer's fascination. That's the reason, you will choose Hamid Photography as your fashion photographic partner. Newspapers, magazines have proudly published many of his works. Hamid Ali is moving faster than other contemporary photographers in Bangladesh.",
+        "img": "https://i.ibb.co/ZxCGJfq/fashion.jpg",
+        "rating" : "4.8"
+    },
+    {
+        "service_id" : "03",
+        "title" : "Corporate Photography",
+        "description" : "When it comes to corporate photography, Hamid Ali is a master of it. You will have some fresh corporate ideas from Hamid Ali photography.",
+        "details" : "Companies in today's time leave no stone unturned to promote their brands and professionalism. For brand promoting, many local and multinational companies reasonably hired Hamid Ali to capture their corporate photographs. He has the experience to work with many prominent corporate companies. If you look at the photo collection then you will have a clear idea about his professional corporate proficiency.",
+        "img": "https://i.ibb.co/C5RqP1q/corparate.jpg",
+        "rating" : "4.9"
+    },
+    {
+        "service_id" : "04",
+        "title" : "Product Photography",
+        "description" : "Though product photography sounds all simple but it's tricky and challenging. There is a difference between capturing a photo of human beings and products. Unless you capture it with a perfect frame then you can't show the beauty of product photography in a picture.",
+        "details" : "There is a saying that the first impression is the last impression. A photographer has to use certain techniques so that it can grab the attention of the consumer at first glance. No one can beat Hamid Ali to create the first impression that lasts forever. He does all kinds of product photography including e-commerce photography, advertising photography, food photography and many more.",
+        "img": "https://i.ibb.co/5hY6bLQ/product.jpg",
+        "rating" : "4.7"
+    },
+    {
+        "service_id" : "05",
+        "title" : "Industrial Photography",
+        "description" : "Only photographers like Hamid Ali can come up with an innovative camera angle even while taking photos of the machine and working people. It shows how enthusiastic Hamid Ali is in industrial photography.",
+        "details" : "Industrial sites offer a big opportunity for photographers to apply their photographic talent but industrial photography is always a little tricky. And Hamid Ali processes all the expertise on one professional photographer who needs to capture industrial photography. That’s why many well-known industries trust Hamid's talent and they love to collaborate with Hamid Ali photography. As a result, he has worked with major export-oriented industries like Nitol Motors, Abanti Color Tex, CBC Group, Abedin Group, Crony Group, JK Group, Continental Garments Group, BD Foods, Jamuna Group, Nestle Bangladesh ltd, Unitec ltd, etc.",
+        "img": "https://i.ibb.co/zxwc2Fc/indusrial.jpg",
+        "rating" : "4.8"
+    },
+    {
+        "service_id" : "06",
+        "title" : "Interior Photography",
+        "description" : "Each type of photography requires different skills and levels of dedication. Because you have to put more time and effort while doing post-production photography. You have to focus on every detail. This made interior photography a little more difficult than other.",
+        "details" : "You need to have a sound knowledge of real estate to be a professional interior photographer. Hamid Ali has made it look easy. He has experience working in this photography field and has a wide collection of the interior photoshoot. Many 5-star hotels have collaborated with him to shoot their interior.",
+        "img": "https://i.ibb.co/QYd2fkY/interior.jpg",
+        "rating" : "4.9"
+    }
+]

@@ -5,7 +5,7 @@ import "./css/banner.css"
 const Banner = () => {
   return (
     <>
-      <div className="container mx-auto carousel relative w-full ">
+      <div className="container mx-auto carousel relative w-full mb-10">
         <div id="item1" className="carousel-item w-full carousel-img ">
           <img src={banner} className="w-full banner" alt="" />
         </div>
@@ -25,7 +25,7 @@ const Banner = () => {
             things, long after you have forgotten everything
           </p>
           <div className="flex md:mt-4 lg:mt-0">
-            <button className="btn btn-xs md:btn-md bg-transparent text-white border-primary rounded-md mr-5 hover:text-base-100 hover:bg-primary hover:border-primary">
+            <button className="btn btn-xs md:btn-md bg-transparent text-white border-primary rounded-md mr-5 text-xs md:text-base hover:text-base-100 hover:bg-primary hover:border-primary">
               See my services
             </button>
           </div>
