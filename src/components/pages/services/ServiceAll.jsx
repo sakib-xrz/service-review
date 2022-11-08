@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import star from "../../../assets/logo/star.png"
 
 const ServiceAll = () => {
@@ -18,8 +20,12 @@ const ServiceAll = () => {
           <div key={service._id} className="container px-5 mx-auto">
             <div className="-my-8 divide-y-2 divide-gray-100">
               <div className="py-8 flex flex-wrap md:flex-nowrap items-center">
-                <div className="w-full md:w-[40%] lg:w-[30%] md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                  <img src={service.img} alt="" className="rounded-md" />
+                <div className="w-full md:w-[40%] lg:w-[30%] md:mb-0 mb-6 flex-shrink-0 flex flex-col cursor-crosshair">
+                  <PhotoProvider>
+                    <PhotoView src={service.img}>
+                      <img src={service.img} alt="" className="rounded-md" />
+                    </PhotoView>
+                  </PhotoProvider>
                 </div>
                 <div className="md:flex-grow flex items-center md:px-10 ">
                   <div>
@@ -29,6 +35,9 @@ const ServiceAll = () => {
                     <p className="leading-relaxed">
                       {service.details.slice(0, 300)}...
                     </p>
+                    <h2 className="font-semibold text-lg mt-3">
+                      Price: ${service.price}
+                    </h2>
                     <div className="flex items-center justify-between">
                       <Link
                         to={`/services/${service._id}`}

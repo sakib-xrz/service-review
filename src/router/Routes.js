@@ -6,7 +6,6 @@ import ServiceAll from "../components/pages/services/ServiceAll";
 import SingleService from "../components/pages/services/SingleService";
 import Error from "../components/shared/Error";
 import Main from "../layouts/Main";
-import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -37,11 +36,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: (
-          <PrivateRoute>
-            <SingleService></SingleService>
-          </PrivateRoute>
-        ),
+        element: <SingleService></SingleService>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/all/${params.id}`),
       },
