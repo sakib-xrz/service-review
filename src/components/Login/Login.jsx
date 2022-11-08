@@ -1,11 +1,11 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import AuthProvider from "../../context/AuthProvider";
-
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { signIn, logInWithGoogle } = useContext(AuthProvider);
+  const { signIn, logInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -23,6 +23,9 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
+        toast.success("Log In Successful", {
+          style: { background: "#333", color: "#fff" },
+        });
         const user = result.user;
         console.log(user);
         form.reset();
@@ -38,6 +41,9 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     logInWithGoogle(googleProvider)
       .then((result) => {
+        toast.success("Log In Successful", {
+          style: { background: "#333", color: "#fff" },
+        });
         const user = result.user;
         console.log(user);
         setError("");
@@ -47,7 +53,7 @@ const Login = () => {
         console.error(error);
         setError(error.message);
       });
- };
+  };
 
   return (
     <div className="w-11/12 md:w-7/12 lg:w-5/12 mx-auto my-8">

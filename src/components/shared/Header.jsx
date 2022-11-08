@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/logo.jpg";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
+  const { logOut, user } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const signOut = () => {
-  //   logOut()
-  //     .then(() => {
-  //       toast.success("Logout successful", { duration: 2000 });
-  //     })
-  //     .catch((error) => {});
-  // };
+  const signOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout successful", {
+          style: { background: "#333", color: "#fff" },
+        });
+      })
+      .catch((error) => {});
+  };
 
   return (
     <div className="sticky top-0 z-50">
@@ -109,7 +114,7 @@ const Header = () => {
                   </svg>
                 </label>
               </div>
-              {/* {user?.uid ? (
+              {user?.uid ? (
                 <div className="flex items-center justify-end">
                   <h2 className="text-neutral font-medium text-sm md:text-lg">
                     {user?.displayName}
@@ -117,7 +122,7 @@ const Header = () => {
                   <div className="dropdown dropdown-hover dropdown-end">
                     <label
                       tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar ml-2"
+                      className="btn btn-ghost btn-circle border-2 border-primary avatar ml-2 hover:border-primary"
                     >
                       <div className="w-10 rounded-full">
                         {user?.photoURL ? (
@@ -132,7 +137,7 @@ const Header = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="menu menu-compact dropdown-content p-2 shadow bg-white rounded-md w-52"
+                      className="menu menu-compact dropdown-content p-2 shadow bg-base-100 border text-white rounded-md w-52"
                     >
                       <li>
                         <Link>Profile</Link>
@@ -143,28 +148,28 @@ const Header = () => {
                     </ul>
                   </div>
                 </div>
-              ) : ( */}
-              <li>
-                <Link
-                  to="/login"
-                  className="inline-flex items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded border border-primary shadow-md bg-transparent hover:bg-primary hover:text-base-100"
-                  aria-label="Appointment"
-                  title="Appointment"
-                >
-                  Log In
-                </Link>
-              </li>
-              {/* )} */}
+              ) : (
+                <li>
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center justify-center h-12 px-6 font-semibold tracking-wide text-white transition duration-200 rounded border border-primary shadow-md bg-transparent hover:bg-primary hover:text-base-100"
+                    aria-label="Appointment"
+                    title="Appointment"
+                  >
+                    Log In
+                  </Link>
+                </li>
+              )}
             </ul>
 
             {/* Mobile menu start here */}
 
             <div className="lg:hidden col-span-5 flex justify-end items-center">
-              {/* {user?.uid ? (
+              {user?.uid ? (
                 <div className="dropdown dropdown-hover dropdown-end">
                   <label
                     tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar ml-2"
+                    className="btn btn-ghost btn-circle border-2 border-primary avatar ml-2"
                   >
                     <div className="w-10 rounded-full">
                       {user?.photoURL ? (
@@ -179,7 +184,7 @@ const Header = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-compact dropdown-content p-2 shadow bg-white rounded-md w-52"
+                    className="menu menu-compact dropdown-content p-2 shadow bg-base-100 border text-white rounded-md w-52"
                   >
                     <li>
                       <Link>{user?.displayName}</Link>
@@ -194,7 +199,7 @@ const Header = () => {
                 </div>
               ) : (
                 <></>
-              )} */}
+              )}
               <button
                 aria-label="Open Menu"
                 title="Open Menu"
@@ -326,22 +331,22 @@ const Header = () => {
                             Blog
                           </NavLink>
                         </li>
-                        {/* {user?.uid ? (
+                        {user?.uid ? (
                           <></>
-                        ) : ( */}
-                        <div>
-                          <li>
-                            <Link
-                              href="/"
-                              className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-transparent text-primary border border-primary hover:bg-primary hover:text-base-100"
-                              aria-label="Appointment"
-                              title="Appointment"
-                            >
-                              Log In
-                            </Link>
-                          </li>
-                        </div>
-                        {/* )} */}
+                        ) : (
+                          <div>
+                            <li>
+                              <Link
+                                href="/"
+                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-transparent text-primary border border-primary hover:bg-primary hover:text-base-100"
+                                aria-label="Appointment"
+                                title="Appointment"
+                              >
+                                Log In
+                              </Link>
+                            </li>
+                          </div>
+                        )}
                       </ul>
                     </nav>
                   </div>

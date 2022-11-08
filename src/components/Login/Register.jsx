@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import AuthProvider from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
-  const { signUp, profileUpdate } = useContext(AuthProvider);
+  const { signUp, profileUpdate } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
   const navigate = useNavigate();
@@ -29,6 +30,9 @@ const Register = () => {
 
     signUp(email, password)
       .then((result) => {
+        toast.success("Sign Up Complete, Please Log In", {
+          style: { background: "#333", color: "#fff" },
+        });
         const user = result.user;
         console.log(user);
         form.reset();
