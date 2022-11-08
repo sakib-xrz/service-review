@@ -8,17 +8,20 @@ import { AiFillLinkedin } from "react-icons/ai";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-dark text-white">
+      <footer className="bg-dark text-white border-t-2 border-[#2C3132]">
         <div className="footer p-10 container mx-auto">
           <div className="text-left">
-            <img className="mr-auto h-[80px] w-auto" src={Logo} alt="" />
+            <img className="mr-auto h-[70px] w-auto" src={Logo} alt="" />
             <p>
-              <span className="text-xl font-semibold">Car Doctor Ltd.</span>
+              <span className="text-xl font-semibold">
+                Hamid Ali Photography.
+              </span>
               <br />
               <span className="font-thin">
-                Edwin Diaz is a software and web <br />
-                technologies engineer, a life coach <br />
-                trainer who is also a serial.
+                Hamid Ali is one of the freelance commercial <br />
+                photographers in Bangladesh. He believes in <br /> simplicity so
+                he always tries to exhibit his <br /> works creatively in a
+                simple way.
               </span>
             </p>
             <div className="flex text-2xl pt-2">
@@ -29,7 +32,9 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <span className="font-semibold text-lg md:mb-5">About</span>
+            <span className="font-semibold text-lg md:mb-5">
+              Important Links
+            </span>
             <a href="/" className="link link-hover font-thin">
               Home
             </a>
@@ -41,9 +46,9 @@ const Footer = () => {
             </a>
           </div>
           <div>
-            <span className="font-semibold text-lg md:mb-5">Company</span>
+            <span className="font-semibold text-lg md:mb-5">About Me</span>
             <a href="/" className="link link-hover font-thin">
-              Why Car Doctor
+              Why Me?
             </a>
             <a href="/" className="link link-hover font-thin">
               About
@@ -54,9 +59,6 @@ const Footer = () => {
           </div>
           <div>
             <span className="font-semibold text-lg md:mb-5">Support</span>
-            <a href="/" className="link link-hover font-thin">
-              Support Center
-            </a>
             <a href="/" className="link link-hover font-thin">
               Terms and Conditions
             </a>
