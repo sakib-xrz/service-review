@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
           <div>
             <span className="font-semibold text-lg md:mb-5">
-              Important Links
+              Links
             </span>
             <a href="/" className="link link-hover font-thin">
               Home
