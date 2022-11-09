@@ -10,6 +10,7 @@ import ServiceAll from "../components/pages/services/ServiceAll";
 import SingleService from "../components/pages/services/SingleService";
 import Error from "../components/shared/Error";
 import Main from "../layouts/Main";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About></About>
+        element: <About></About>,
       },
       {
         path: "/login",
@@ -50,16 +51,24 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-review",
-        element: <MyReview></MyReview>,
+        element: (
+          <PrivateRoute>
+            <MyReview></MyReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-services",
-        element: <AddServices></AddServices>,
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
-      }
+        element: <Blog></Blog>,
+      },
     ],
   },
 ]);

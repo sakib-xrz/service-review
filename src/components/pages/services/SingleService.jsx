@@ -30,11 +30,7 @@ const SingleService = () => {
     event.preventDefault();
     const form = event.target;
     const review = form.review.value;
-    const current = new Date();
-    const time = current.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    const time = new Date().toLocaleString();
 
     const userReview = {
       serviceId: _id,
