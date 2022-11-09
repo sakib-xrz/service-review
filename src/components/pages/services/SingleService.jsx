@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import hamid from "../../../assets/logo/hamid.jpg";
+import { AuthContext } from "../../../context/AuthProvider";
+import lock from "../../../assets/logo/lock.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import user from "../../../assets/logo/hamid.jpg";
-import { AuthContext } from "../../../context/AuthProvider";
+import rating from "../../../assets/logo/rating5star.png"
 
 const SingleService = () => {
+  const location = useLocation();
   const service = useLoaderData();
   const { _id, title, cover, details, price } = service;
 
@@ -106,64 +108,89 @@ const SingleService = () => {
         </span>
       </div>
       <div className="grid grid-cols-12">
-        <div className="md:col-span-6 col-span-12 pt-10 md:pb-10 px-3 md:px-0">
-          {/* ----------- */}
+        <div className="md:col-span-6 col-span-12 md:pt-10 px-3 md:px-0">
           {reviews.map((review) => (
-            <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
-              <div className="flex items-center">
-                <img
-                  src={review.img}
-                  alt=""
-                  className="h-12 w-12 rounded-full"
-                />
-                <div className="ml-5">
-                  <h2 className="text-left text-xl font-medium text-white">
-                    {review.name}
-                  </h2>
-                  <p>
-                    <small>{review.time}</small>
-                  </p>
+            <div
+              key={review._id}
+              className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-xl my-5 p-5 md:mx-10"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <img
+                    src={review.img}
+                    alt=""
+                    className="h-12 w-12 rounded-full"
+                  />
+                  <div className="ml-5">
+                    <h2 className="text-left text-xl font-medium text-white">
+                      {review.name}
+                    </h2>
+                    <p>
+                      <small>{review.time}</small>
+                    </p>
+                  </div>
                 </div>
+                <img src={rating} alt=""  className="w-20 h-auto"/>
               </div>
               <div className="divider "></div>
               <p>{review.review}</p>
             </div>
           ))}
-          {/* ----------- */}
         </div>
         <div className="md:col-span-6 col-span-12 px-3 md:px-0">
-          <form
-            onSubmit={handleReviewSubmit}
-            noValidate=""
-            action=""
-            className="md:sticky md:top-20"
-          >
-            <div className="md:px-10">
-              <div className=" bg-transparent rounded-md lg:px-6 py-12 max-w-2xl mx-auto">
-                <h2 className="text-left text-2xl font-medium text-white mb-4">
-                  Write A Review
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <textarea
-                      id="description"
-                      cols="30"
-                      rows="5"
-                      name="review"
-                      placeholder="Describe your experience..."
-                      className="w-full font-serif  p-4 text-white bg-transparent border rounded-md"
-                    ></textarea>
+          {user?.uid ? (
+            <form
+              onSubmit={handleReviewSubmit}
+              noValidate=""
+              action=""
+              className="md:sticky md:top-20"
+            >
+              <div className="md:px-10">
+                <div className=" bg-transparent rounded-md lg:px-6 py-12 max-w-2xl mx-auto">
+                  <h2 className="text-left text-2xl font-medium text-white mb-4">
+                    Write A Review
+                  </h2>
+                  <div className="space-y-4">
+                    <div>
+                      <textarea
+                        id="description"
+                        cols="30"
+                        rows="5"
+                        name="review"
+                        placeholder="Describe your experience..."
+                        className="w-full font-serif  p-4 text-white bg-transparent border rounded-md"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="px-6 py-2 block rounded-md text-lg font-semibold text-base-100 bg-primary  "
+                    >
+                      POST REVIEW
+                    </button>
                   </div>
-                  <button
-                    type="submit"
-                    className="px-6 py-2 block rounded-md text-lg font-semibold text-base-100 bg-primary  "
+                </div>
+              </div>
+            </form>
+          ) : (
+            <div className="md:sticky md:top-20">
+              <img src={lock} alt="" className="h-64 w-64 mx-auto -pt-10" />
+              <div>
+                <h2 className="text-2xl text-white w-full font-bold text-center -mt-[20px]">
+                  You need to login to add a review.
+                </h2>
+                <div className="w-full flex justify-center py-10">
+                  <Link
+                    to="/login"
+                    state={{ from: location }}
+                    replace
+                    className="btn btn-wide font-medium justify-center text-white transition duration-200 rounded border border-primary shadow-md bg-transparent hover:bg-primary hover:text-base-100"
                   >
-                    POST REVIEW
-                  </button>
+                    Log In
+                  </Link>
                 </div>
               </div>
             </div>
-          </form>
+          )}
         </div>
       </div>
     </div>
