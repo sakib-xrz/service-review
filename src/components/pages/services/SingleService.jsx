@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import hamid from "../../../assets/logo/hamid.jpg";
 import { PhotoProvider, PhotoView } from "react-photo-view";
@@ -10,23 +10,49 @@ const SingleService = () => {
   const service = useLoaderData();
   const { _id, title, cover, details, price } = service;
 
-  const {user} = useContext(AuthContext);
-  const { displayName, email, photoURL } = user;
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        const newReview = data.filter((review) => review.serviceId === _id);
+        setReviews(newReview);
+      });
+  }, [_id]);
+
+  const { user } = useContext(AuthContext);
 
   const handleReviewSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const review = form.review.value;
+    const current = new Date();
+    const time = current.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
     const userReview = {
       serviceId: _id,
-      name: displayName,
-      email: email,
-      img: photoURL,
+      name: user?.displayName,
+      email: user?.email,
+      img: user?.photoURL,
       review,
+      time,
     };
 
-    
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -82,86 +108,27 @@ const SingleService = () => {
       <div className="grid grid-cols-12">
         <div className="md:col-span-6 col-span-12 pt-10 md:pb-10 px-3 md:px-0">
           {/* ----------- */}
-          <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
-            <div className="flex items-center">
-              <img src={user} alt="" className="h-14 w-14 rounded-full" />
-              <div className="ml-5">
-                <h2 className="text-left text-xl font-medium text-white">
-                  Md Sakibul Islam
-                </h2>
-                <p>
-                  <small>12.05 PM</small>
-                </p>
+          {reviews.map((review) => (
+            <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
+              <div className="flex items-center">
+                <img
+                  src={review.img}
+                  alt=""
+                  className="h-12 w-12 rounded-full"
+                />
+                <div className="ml-5">
+                  <h2 className="text-left text-xl font-medium text-white">
+                    {review.name}
+                  </h2>
+                  <p>
+                    <small>{review.time}</small>
+                  </p>
+                </div>
               </div>
+              <div className="divider "></div>
+              <p>{review.review}</p>
             </div>
-            <div className="divider "></div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea magni
-              quia iusto. Doloremque atque modi possimus nam deleniti, obcaecati
-              culpa quae consequuntur molestiae vero blanditiis? Doloremque
-              recusandae corrupti hic odio.
-            </p>
-          </div>
-          <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
-            <div className="flex items-center">
-              <img src={user} alt="" className="h-14 w-14 rounded-full" />
-              <div className="ml-5">
-                <h2 className="text-left text-xl font-medium text-white">
-                  Md Sakibul Islam
-                </h2>
-                <p>
-                  <small>12.05 PM</small>
-                </p>
-              </div>
-            </div>
-            <div className="divider "></div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea magni
-              quia iusto. Doloremque atque modi possimus nam deleniti, obcaecati
-              culpa quae consequuntur molestiae vero blanditiis? Doloremque
-              recusandae corrupti hic odio.
-            </p>
-          </div>
-          <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
-            <div className="flex items-center">
-              <img src={user} alt="" className="h-14 w-14 rounded-full" />
-              <div className="ml-5">
-                <h2 className="text-left text-xl font-medium text-white">
-                  Md Sakibul Islam
-                </h2>
-                <p>
-                  <small>12.05 PM</small>
-                </p>
-              </div>
-            </div>
-            <div className="divider "></div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea magni
-              quia iusto. Doloremque atque modi possimus nam deleniti, obcaecati
-              culpa quae consequuntur molestiae vero blanditiis? Doloremque
-              recusandae corrupti hic odio.
-            </p>
-          </div>
-          <div className="text-white mx-auto bg-transparent border border-[#2C3132] rounded-xl shadow-2xl my-5 p-5 md:mx-10">
-            <div className="flex items-center">
-              <img src={user} alt="" className="h-14 w-14 rounded-full" />
-              <div className="ml-5">
-                <h2 className="text-left text-xl font-medium text-white">
-                  Md Sakibul Islam
-                </h2>
-                <p>
-                  <small>12.05 PM</small>
-                </p>
-              </div>
-            </div>
-            <div className="divider "></div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea magni
-              quia iusto. Doloremque atque modi possimus nam deleniti, obcaecati
-              culpa quae consequuntur molestiae vero blanditiis? Doloremque
-              recusandae corrupti hic odio.
-            </p>
-          </div>
+          ))}
           {/* ----------- */}
         </div>
         <div className="md:col-span-6 col-span-12 px-3 md:px-0">
