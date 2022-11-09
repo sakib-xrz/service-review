@@ -90,6 +90,38 @@ const Header = () => {
                   Blog
                 </NavLink>
               </li>
+              {user?.uid && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/my-review"
+                      aria-label="My Reviews"
+                      title="My Reviews"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary font-medium tracking-wide transition-colors duration-200 hover:text-primary"
+                          : "font-medium tracking-wide text-neutral transition-colors duration-200 hover:text-primary"
+                      }
+                    >
+                      My Reviews
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/add-services"
+                      aria-label="Add Services"
+                      title="Add Services"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary font-medium tracking-wide transition-colors duration-200 hover:text-primary"
+                          : "font-medium tracking-wide text-neutral transition-colors duration-200 hover:text-primary"
+                      }
+                    >
+                      Add Services
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
             <ul className="col-span-3 justify-end items-center hidden space-x-8 lg:flex">
               {/* dark-mode toggle */}
@@ -331,21 +363,49 @@ const Header = () => {
                             Blog
                           </NavLink>
                         </li>
-                        {user?.uid ? (
-                          <></>
-                        ) : (
-                          <div>
+                        {user?.uid && (
+                          <div className="space-y-4">
                             <li>
-                              <Link
-                                href="/"
-                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-transparent text-primary border border-primary hover:bg-primary hover:text-base-100"
-                                aria-label="Appointment"
-                                title="Appointment"
+                              <NavLink
+                                to="/my-review"
+                                aria-label="My Reviews"
+                                title="My Reviews"
+                                className={({ isActive }) =>
+                                  isActive
+                                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                                    : "font-medium tracking-wide text-neutral transition-colors duration-200 hover:text-primary"
+                                }
                               >
-                                Log In
-                              </Link>
+                                My Reviews
+                              </NavLink>
+                            </li>
+                            <li>
+                              <NavLink
+                                to="/add-services"
+                                aria-label="Add Services"
+                                title="Add Services"
+                                className={({ isActive }) =>
+                                  isActive
+                                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                                    : "font-medium tracking-wide text-neutral transition-colors duration-200 hover:text-primary"
+                                }
+                              >
+                                Add Services
+                              </NavLink>
                             </li>
                           </div>
+                        )}
+                        {user?.uid ? <></> : (
+                          <li>
+                            <Link
+                              href="/"
+                              className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-transparent text-primary border border-primary hover:bg-primary hover:text-base-100"
+                              aria-label="Appointment"
+                              title="Appointment"
+                            >
+                              Log In
+                            </Link>
+                          </li>
                         )}
                       </ul>
                     </nav>

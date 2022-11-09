@@ -6,6 +6,7 @@ import lock from "../../../assets/logo/lock.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import rating from "../../../assets/logo/rating5star.png"
+import toast from "react-hot-toast";
 
 const SingleService = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const SingleService = () => {
         const newReview = data.filter((review) => review.serviceId === _id);
         setReviews(newReview);
       });
-  }, [_id]);
+  }, [reviews,_id]);
 
   const { user } = useContext(AuthContext);
 
@@ -53,6 +54,10 @@ const SingleService = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Review Added", {
+          style: { background: "#333", color: "#fff" },
+        });
+        form.reset()
         console.log(data);
       });
   };
@@ -119,7 +124,7 @@ const SingleService = () => {
                   <img
                     src={review.img}
                     alt=""
-                    className="h-12 w-12 rounded-full"
+                    className="h-12 w-12 rounded-full object-cover"
                   />
                   <div className="ml-5">
                     <h2 className="text-left text-xl font-medium text-white">
@@ -130,7 +135,7 @@ const SingleService = () => {
                     </p>
                   </div>
                 </div>
-                <img src={rating} alt=""  className="w-20 h-auto"/>
+                <img src={rating} alt="" className="w-20 h-auto" />
               </div>
               <div className="divider "></div>
               <p>{review.review}</p>
@@ -146,7 +151,7 @@ const SingleService = () => {
               className="md:sticky md:top-20"
             >
               <div className="md:px-10">
-                <div className=" bg-transparent rounded-md lg:px-6 py-12 max-w-2xl mx-auto">
+                <div className="bg-transparent rounded-md lg:px-6 py-12 max-w-2xl mx-auto">
                   <h2 className="text-left text-2xl font-medium text-white mb-4">
                     Write A Review
                   </h2>
@@ -158,15 +163,17 @@ const SingleService = () => {
                         rows="5"
                         name="review"
                         placeholder="Describe your experience..."
-                        className="w-full font-serif  p-4 text-white bg-transparent border rounded-md"
+                        className="w-full font-serif p-4 text-white bg-transparent border rounded-md"
                       ></textarea>
                     </div>
-                    <button
-                      type="submit"
-                      className="px-6 py-2 block rounded-md text-lg font-semibold text-base-100 bg-primary  "
-                    >
-                      POST REVIEW
-                    </button>
+                    <div className="">
+                      <button
+                        type="submit"
+                        className="px-6 py-2 block rounded-md text-lg font-semibold text-base-100 bg-primary"
+                      >
+                        POST REVIEW
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
