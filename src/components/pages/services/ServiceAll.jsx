@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import star from "../../../assets/logo/star.png"
+import star from "../../../assets/logo/star.png";
 
 const ServiceAll = () => {
   const allService = useLoaderData();
@@ -15,7 +15,6 @@ const ServiceAll = () => {
         <p className="text-primary">Explore my works</p>
       </div>
       <div>
-        {/* ----------------------- */}
         {allService.map((service) => (
           <div key={service._id} className="container px-5 mx-auto">
             <div className="-my-8 divide-y-2 divide-gray-100">
@@ -69,7 +68,6 @@ const ServiceAll = () => {
             <div className="divider"></div>
           </div>
         ))}
-        {/* ----------------------- */}
       </div>
     </div>
   );
