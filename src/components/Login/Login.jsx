@@ -28,11 +28,28 @@ const Login = () => {
         toast.success("Log In Successful", {
           style: { background: "#333", color: "#fff" },
         });
+
         const user = result.user;
-        console.log(user);
+        
+        const currentUser = {
+          email: user.email,
+        };
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data);
+            navigate(from, { replace: true });
+          });
+
         form.reset();
         setError("");
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -47,9 +64,23 @@ const Login = () => {
           style: { background: "#333", color: "#fff" },
         });
         const user = result.user;
-        console.log(user);
+        const currentUser = {
+          email: user.email,
+        };
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data);
+            navigate(from, { replace: true });
+          });
         setError("");
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);

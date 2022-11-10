@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 const SingleService = () => {
   const location = useLocation();
   const service = useLoaderData();
-  const [fire, setFire] = useState(true);
   const { _id, title, cover, details, price } = service;
 
   const [reviews, setReviews] = useState([]);
@@ -23,8 +22,7 @@ const SingleService = () => {
         const newReview = data.filter((review) => review.serviceId === _id);
         setReviews(newReview);
       });
-    setFire(false);
-  }, [fire]);
+  }, [reviews, _id]);
 
   const { user } = useContext(AuthContext);
 
@@ -42,7 +40,6 @@ const SingleService = () => {
       review,
       time,
     };
-    setFire(true);
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {

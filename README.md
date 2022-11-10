@@ -3,7 +3,7 @@
 ## `Live Link`
 ()
 
-Hamid Ali Photography is a business portfolio website. Where the website owner can add service and the users can review the services. User also update or delete their review.
+Hamid Ali Photography is a business website. Where the website owner can add service and the users can review the services. User also update or delete their review.
 
  ## `Features and Functionality`
 
