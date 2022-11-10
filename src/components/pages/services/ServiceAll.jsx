@@ -9,7 +9,7 @@ const ServiceAll = () => {
   const [loading, setLoading] = useState(true);
   const [allService, setAllService] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services/all")
+    fetch("https://service-review-server-mauve.vercel.app/services/all")
       .then((res) => res.json())
       .then((data) => setAllService(data));
     setLoading(false);

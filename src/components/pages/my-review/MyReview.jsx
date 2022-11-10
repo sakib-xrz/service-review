@@ -11,11 +11,14 @@ const MyReview = () => {
   const [MyReview, setMyReview] = useState([]);
   useTitle("My Reviews");
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/my-review?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    fetch(
+      `https://service-review-server-mauve.vercel.app/reviews/my-review?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -29,7 +32,7 @@ const MyReview = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Do you want to delete this review?");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://service-review-server-mauve.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -69,6 +72,7 @@ const MyReview = () => {
                   <h2 className="text-left text-xl font-medium text-white">
                     {r.name}
                   </h2>
+                  <p>{r.serviceName}</p>
                   <p>
                     <small>{r.time}</small>
                   </p>

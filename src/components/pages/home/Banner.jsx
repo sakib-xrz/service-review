@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import banner from "../../../assets/banner/banner.jpg";
 import "./css/banner.css"
 
@@ -25,9 +26,11 @@ const Banner = () => {
             things, long after you have forgotten everything
           </p>
           <div className="flex md:mt-4 lg:mt-0">
-            <button className="btn btn-xs md:btn-md bg-transparent text-white border-primary rounded-md mr-5 text-xs md:text-base hover:text-base-100 hover:bg-primary hover:border-primary">
-              See my services
-            </button>
+            <Link to={"/services"}>
+              <button className="btn btn-xs md:btn-md bg-transparent text-white border-primary rounded-md mr-5 text-xs md:text-base hover:text-base-100 hover:bg-primary hover:border-primary">
+                See my services
+              </button>
+            </Link>
           </div>
         </div>
       </div>

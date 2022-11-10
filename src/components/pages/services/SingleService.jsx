@@ -16,7 +16,7 @@ const SingleService = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://service-review-server-mauve.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         const newReview = data.filter((review) => review.serviceId === _id);
@@ -34,13 +34,14 @@ const SingleService = () => {
 
     const userReview = {
       serviceId: _id,
+      serviceName: title,
       name: user?.displayName,
       email: user?.email,
       img: user?.photoURL,
       review,
       time,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://service-review-server-mauve.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -14,13 +14,16 @@ const UpdateReview = () => {
       newReview,
     };
 
-    fetch(`http://localhost:5000/reviews/my-review/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(reviewData),
-    })
+    fetch(
+      `https://service-review-server-mauve.vercel.app/reviews/my-review/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

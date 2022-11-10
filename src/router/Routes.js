@@ -47,7 +47,9 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <SingleService></SingleService>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/all/${params.id}`),
+          fetch(
+            `https://service-review-server-mauve.vercel.app/services/all/${params.id}`
+          ),
       },
       {
         path: "/my-review",
@@ -69,7 +71,9 @@ export const router = createBrowserRouter([
         path: "/my-review/update/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/my-review/${params.id}`),
+          fetch(
+            `https://service-review-server-mauve.vercel.app/reviews/my-review/${params.id}`
+          ),
       },
       {
         path: "/blog",

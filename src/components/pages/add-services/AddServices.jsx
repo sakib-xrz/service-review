@@ -24,17 +24,17 @@ const AddServices = () => {
       details,
     };
 
-    fetch("http://localhost:5000/services/all",{
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(service)
+    fetch("https://service-review-server-mauve.vercel.app/services/all", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(service),
     })
-    .then(res => res.json())
-    .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-    })
+      });
   };
 
   return (

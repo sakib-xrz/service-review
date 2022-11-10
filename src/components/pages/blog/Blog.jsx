@@ -48,44 +48,47 @@ const Blog = () => {
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="space-y-4 text-justify">
           <Item title="Difference between SQL and NoSQL">
-            There isn’t always a need for licensing or accreditation for online
-            courses. However, some programs do require it. Either way, people
-            will usually ask what type of training or background you have, as
-            well as any licensing that’s available if that’s relevant. Make sure
-            that you answer this question by telling them if you do hold any
-            licenses or accreditation, as well as by explaining whether or not
-            those are needed, and why. It gives them the confidence that you
-            have the right experience and boosts your credibility because you’re
-            offering additional information for the sake of education alone.
+            SQL is the programming language used to interface with relational
+            databases. (Relational databases model data as records in rows and
+            tables with logical links between them). NoSQL is a class of DBMs
+            that are non-relational and generally do not use SQL.Remember that
+            SQL dialects share many properties though they interface with
+            distinct databases. Flavors of NoSQL vary far more across their
+            attendant systems, so comparison can be more useful between multiple
+            non-relational technologies vs. SQL generally.
           </Item>
           <Item title="What is JWT, and how does it work?">
-            People will want to know how to get started. You can link them to
-            the pages on your website that help them through that process, but
-            you’ll also want to take the time to explain it to them here. If you
-            have certain enrollment windows, for example, list those. If payment
-            or deposits are required, explain that, as well. Make sure that
-            people know exactly what they need to do to take online courses from
-            you, no matter what those courses might be.
+            JWT Means (JSON Web Token)? JSON Web Token (JWT) is an open standard
+            (RFC 7519) for securely transmitting information between parties as
+            JSON object.It is compact, readable and digitally signed using a
+            private key/ or a public key pair by the Identity Provider(IdP). So
+            the integrity and authenticity of the token can be verified by other
+            parties involved.The purpose of using JWT is not to hide data but to
+            ensure the authenticity of the data. JWT is signed and encoded, not
+            encrypted.
           </Item>
           <Item title="What is the difference between javascript and NodeJS?">
-            Some online courses are just a few weeks long, while others last a
-            few months. Depending on the type of online learning that you offer,
-            your courses may have their own variable lengths. Explain to people
-            the types of courses that you have available and what the time frame
-            is for each one. If you offer self-paced learning, this is another
-            place to reiterate that and reassure people that you can help them
-            learn on their own time.
+            JavaScript is a simple programming language that can be used with
+            any browser that has the JavaScript Engine installed. Node.js, on
+            the other hand, is an interpreter or execution environment for the
+            JavaScript programming language. It requires libraries that can be
+            conveniently accessed from JavaScript programming to be more
+            helpful.Node.js can now operate non-blocking software tasks out of
+            any JavaScript programming. It contains no OS-specific constants.
+            Node.js establishes a strong relationship with the system files,
+            allowing companies to read and write to the hard drive.
           </Item>
-          <Item
-            title="How does NodeJS handle multiple requests at the same time?"
-          >
-            Even when it comes to education and training, people want to be
-            careful with their money. Some people are on a tight budget. Others
-            just want to be mindful of what they spend. Either way, everyone is
-            going to want to know how much online courses are going to cost. If
-            you have a set list of prices, provide those here. You can also
-            advise whether there are payment plans or financial assistance, or
-            if you work with any type of student loan funding.
+          <Item title="How does NodeJS handle multiple requests at the same time?">
+            The entire NodeJS architecture is not single-threaded. NodeJS
+            receives multiple client requests and places them into EventQueue.
+            NodeJS is built with the concept of event-driven architecture.
+            NodeJS has its own EventLoop which is an infinite loop that receives
+            requests and processes them. EventLoop is the listener for the
+            EventQueue. If NodeJS can process the request without I/O blocking
+            then the event loop would itself process the request and sends the
+            response back to the client by itself. But, it is possible to
+            process multiple requests parallelly using the NodeJS cluster module
+            or worker_threads module.
           </Item>
         </div>
       </div>

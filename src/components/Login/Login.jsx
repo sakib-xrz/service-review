@@ -30,12 +30,12 @@ const Login = () => {
         });
 
         const user = result.user;
-        
+
         const currentUser = {
           email: user.email,
         };
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://service-review-server-mauve.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -68,7 +68,7 @@ const Login = () => {
           email: user.email,
         };
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://service-review-server-mauve.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
