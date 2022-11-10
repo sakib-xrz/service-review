@@ -4,10 +4,12 @@ import { MdDeleteForever } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const MyReview = () => {
   const { user } = useContext(AuthContext);
   const [MyReview, setMyReview] = useState([]);
+  useTitle("My Reviews");
   useEffect(() => {
     fetch(`http://localhost:5000/reviews/my-review?email=${user?.email}`)
       .then((res) => res.json())

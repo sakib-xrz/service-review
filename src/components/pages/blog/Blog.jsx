@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const Blog = () => {
   const Item = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
+    useTitle("Blog");
     return (
       <div className="border rounded shadow-md">
         <button
@@ -16,8 +18,8 @@ const Blog = () => {
           <div className="flex items-center justify-center w-8 h-8 border rounded-full">
             <svg
               viewBox="0 0 24 24"
-              className={`w-3 text-primary font-black transition-transform duration-200 ${
-                isOpen ? "transform rotate-180" : ""
+              className={`w-3 text-white font-black transition-transform duration-200 ${
+                isOpen ? "transform rotate-180 text-primary" : ""
               }`}
             >
               <polyline

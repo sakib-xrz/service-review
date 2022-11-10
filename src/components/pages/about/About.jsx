@@ -1,8 +1,10 @@
 import React from "react";
 import aboutPhoto from "../../../assets/banner/hamid-about-page-image.jpg";
+import useTitle from "../../../hooks/useTitle";
 import Gallery from "./Gallery";
 
 const About = () => {
+  useTitle("About");
   return (
     <div className="container mx-auto">
       <img className="w-full" src={aboutPhoto} alt="" />

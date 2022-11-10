@@ -3,8 +3,10 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Log In");
   const { signIn, logInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
 
