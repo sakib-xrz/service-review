@@ -6,6 +6,7 @@ import AddServices from "../components/pages/add-services/AddServices";
 import Blog from "../components/pages/blog/Blog";
 import Home from "../components/pages/home/Home";
 import MyReview from "../components/pages/my-review/MyReview";
+import UpdateReview from "../components/pages/my-review/UpdateReview";
 import ServiceAll from "../components/pages/services/ServiceAll";
 import SingleService from "../components/pages/services/SingleService";
 import Error from "../components/shared/Error";
@@ -64,6 +65,12 @@ export const router = createBrowserRouter([
             <AddServices></AddServices>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/my-review/update/:id",
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviews/my-review/${params.id}`),
       },
       {
         path: "/blog",

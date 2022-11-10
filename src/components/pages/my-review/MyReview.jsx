@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { MdDeleteForever } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const MyReview = () => {
@@ -35,7 +36,7 @@ const MyReview = () => {
     <div>
       {MyReview.length === 0 ? (
         <div className="h-64 flex justify-center items-center">
-          <h1 className="mb-8 font-extrabold text-5xl text-primary">
+          <h1 className="mb-8 font-extrabold text-3xl md:text-5xl text-primary">
             No Review Found
           </h1>
         </div>
@@ -62,9 +63,9 @@ const MyReview = () => {
                 </div>
               </div>
               <div className="flex items-center">
-                <div>
+                <Link to={`/my-review/update/${r._id}`}>
                   <MdModeEdit className="text-[28px] w-10 h-10 bg-blue-500 p-2 rounded-full cursor-pointer"></MdModeEdit>
-                </div>
+                </Link>
                 <div>
                   <MdDeleteForever
                     onClick={() => handleDelete(r._id)}

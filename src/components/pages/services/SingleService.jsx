@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
-import hamid from "../../../assets/logo/hamid.jpg";
+import hamid from "../../../assets/logo/hamid.png";
 import { AuthContext } from "../../../context/AuthProvider";
 import lock from "../../../assets/logo/lock.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import rating from "../../../assets/logo/rating5star.png"
+import rating from "../../../assets/logo/rating5star.png";
 import toast from "react-hot-toast";
 
 const SingleService = () => {
   const location = useLocation();
   const service = useLoaderData();
+  const [fire, setFire] = useState(true);
   const { _id, title, cover, details, price } = service;
 
   const [reviews, setReviews] = useState([]);
@@ -22,7 +23,8 @@ const SingleService = () => {
         const newReview = data.filter((review) => review.serviceId === _id);
         setReviews(newReview);
       });
-  }, [reviews,_id]);
+    setFire(false);
+  }, [fire]);
 
   const { user } = useContext(AuthContext);
 
@@ -40,7 +42,7 @@ const SingleService = () => {
       review,
       time,
     };
-
+    setFire(true);
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
@@ -53,7 +55,7 @@ const SingleService = () => {
         toast.success("Review Added", {
           style: { background: "#333", color: "#fff" },
         });
-        form.reset()
+        form.reset();
         console.log(data);
       });
   };
