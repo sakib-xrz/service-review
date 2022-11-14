@@ -56,6 +56,7 @@ const AddServices = () => {
                   name="title"
                   id="title"
                   className="w-full text-white bg-transparent outline-none py-1 px-2 text-md border  rounded-sm"
+                  required
                 />
               </div>
               <div className="flex justify-between">
@@ -68,6 +69,7 @@ const AddServices = () => {
                     placeholder="(1-5)"
                     name="rating"
                     className="w-full text-white bg-transparent outline-none py-1 px-2 text-md border  rounded-sm"
+                    required
                   />
                 </div>
                 <div className="w-5/12">
@@ -79,6 +81,7 @@ const AddServices = () => {
                     placeholder="100"
                     name="price"
                     className="w-full text-white bg-transparent outline-none py-1 px-2 text-md border  rounded-sm"
+                    required
                   />
                 </div>
               </div>
@@ -91,8 +94,9 @@ const AddServices = () => {
                   cols="30"
                   rows="1"
                   name="description"
-                  placeholder="Write a short description..."
+                  placeholder="Write a short description (100 words)"
                   className="w-full p-4 text-white bg-transparent border  rounded-sm"
+                  required
                 ></textarea>
               </div>
               <div>
@@ -106,6 +110,7 @@ const AddServices = () => {
                   name="img"
                   placeholder="Card Photo (400px * 225px)"
                   className="w-full p-4 text-white bg-transparent border  rounded-sm"
+                  required
                 ></textarea>
               </div>
               <div>
@@ -119,6 +124,7 @@ const AddServices = () => {
                   name="cover"
                   placeholder="Cover Photo (1200px * 500px)"
                   className="w-full p-4 text-white bg-transparent border  rounded-sm"
+                  required
                 ></textarea>
               </div>
               <div>
@@ -132,6 +138,7 @@ const AddServices = () => {
                   name="details"
                   placeholder="Write full description about this service..."
                   className="w-full p-4 text-white bg-transparent border  rounded-sm"
+                  required
                 ></textarea>
               </div>
               <button

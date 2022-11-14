@@ -398,7 +398,7 @@ const Header = () => {
                         {user?.uid ? <></> : (
                           <li>
                             <Link
-                              href="/"
+                              to="/login"
                               className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-transparent text-primary border border-primary hover:bg-primary hover:text-base-100"
                               aria-label="Appointment"
                               title="Appointment"
