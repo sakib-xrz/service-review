@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import useTitle from "../../../hooks/useTitle";
 
 const AddServices = () => {
@@ -9,19 +10,19 @@ const AddServices = () => {
     const title = form.title.value;
     const rating = form.rating.value;
     const price = form.price.value;
-    const description = form.description.value;
+    const description = form.short.value;
     const img = form.img.value;
     const cover = form.cover.value;
     const details = form.details.value;
 
     const service = {
       title,
-      rating,
-      price,
       description,
+      details,
       img,
       cover,
-      details,
+      rating,
+      price,
     };
 
     fetch("https://service-review-server-mauve.vercel.app/services/all", {
@@ -33,7 +34,12 @@ const AddServices = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.insertedId) {
+          toast.success("Service Added Successfully", {
+            style: { background: "#333", color: "#fff" },
+          });
+          form.reset()
+        }
       });
   };
 
@@ -93,7 +99,7 @@ const AddServices = () => {
                   id="description"
                   cols="30"
                   rows="1"
-                  name="description"
+                  name="short"
                   placeholder="Write a short description (100 words)"
                   className="w-full p-4 text-white bg-transparent border  rounded-sm"
                   required
